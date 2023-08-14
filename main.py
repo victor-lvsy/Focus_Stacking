@@ -29,18 +29,6 @@ cv2.imshow("Image 2", image2)
 cv2.waitKey(0)
 
 
-# Compute gradients using Sobel filters
-gradient_x = cv2.Sobel(gray2, cv2.CV_64F, 1, 0, ksize=3)
-gradient_y = cv2.Sobel(gray2, cv2.CV_64F, 0, 1, ksize=3)
-
-# Compute the magnitude of the gradient
-gradient_magnitude = np.sqrt(gradient_x**2 + gradient_y**2)
-
-# Display the gradient magnitude
-cv2.imshow("Grad", gradient_magnitude.astype(np.uint8))
-cv2.waitKey(0)
-
-
 start_time = time.time()
 NUMBER_OF_ITERATION = 100
 for i in range(1, NUMBER_OF_ITERATION):
