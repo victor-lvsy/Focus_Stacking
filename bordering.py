@@ -6,7 +6,7 @@ from medfilt2 import medfilt2
 def bordering(gray, image):
     # apply binary thresholding
     ret, thresh = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY)
-    KERNEL_SIZE = 5
+    KERNEL_SIZE = 3
     kernel = np.ones((KERNEL_SIZE, KERNEL_SIZE), np.uint8)
     thresh = cv2.erode(thresh, kernel, iterations=1)
     thresh = cv2.dilate(thresh, kernel, iterations=1)
@@ -27,8 +27,8 @@ def bordering(gray, image):
     image_copy2 = np.zeros(image.shape)
     cv2.drawContours(image=image_copy2, contours=contours2[1:-1], contourIdx=-1, color=(255, 255, 255), thickness=3,
                      lineType=cv2.LINE_AA)
-    image_copy2 = cv2.erode(image_copy2, kernel, iterations=1)
-    image_copy2 = cv2.dilate(image_copy2, kernel, iterations=1)
+    # image_copy2 = cv2.erode(image_copy2, kernel, iterations=1)
+    # image_copy2 = cv2.dilate(image_copy2, kernel, iterations=1)
     # cv2.imshow('REDUCED CONTOURS', image_copy2)
     # cv2.waitKey(0)
 
